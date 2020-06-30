@@ -1,310 +1,126 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
-
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
-
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
-
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
 
 
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
+<div class="container"> 
+    <img src="https://www.filepicker.io/api/file/cenzuknFT1GiaSTzg4v1" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.75;">
+  <div class="card bg-light mt-5" >
+    <div class="card-header">
+      <h4>Ingrese su identificación personal</h4>
+    </div>
+          <form [formGroup] ="angForm" style="padding: 15px;">
 
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
+              <!--Datos del usuario-->
+               <div class="row mt-2">
+                  <div class="col">
+                      <label>Nombre</label>
+                      <input type="text" class="form-control" name="name" 
+                      placeholder="Nombres" 
+                      formControlName="name"
+                       #name>
+                       <div style="color: #f00;" *ngIf="angForm.get('name').hasError('required') && angForm.get('name').touched">El campo nombre es obligatorio</div>
+                  </div>
+                  <div class="col">
+                      <label>Apellido Paterno</label>
+                      <input type="text" class="form-control" name="lastname1" 
+                      placeholder="Primer Apellido" 
+                      formControlName='lastname1' 
+                      #lastname1/>
+                      <div style="color: #f00;" *ngIf="angForm.get('lastname1').hasError('required') && angForm.get('lastname1').touched">El campo primer apellido es obligatorio</div>
+                  </div>
+                  <div class="col">
+                      <label>Apellido Materno</label>
+                      <input type="text" class="form-control" name="lastname2" 
+                      placeholder="Segundo Apellido" 
+                      formControlName='lastname2' 
+                      #lastname2/>
+                      <div style="color: #f00;" *ngIf="angForm.get('lastname2').hasError('required') && angForm.get('lastname2').touched">El campo segundo Apellido es obligatorio</div>
+                  </div> 
+              </div>
 
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
+              <!--Documentos-->
+              <div class="row mt-3">
+                <div class="col">
+                    <label>4 últimos dígitos del SSN</label>
+                    <input type="number" class="form-control" name="ssn" 
+                    placeholder="4 últimos dígitos del SSN" 
+                    formControlName="ssn"
+                     #ssn>
+                     <div style="color: #f00;" *ngIf=" angForm.get('ssn').invalid && (angForm.get('ssn').dirty || angForm.get('ssn').touched) ">Por favor ingrese los 4 últimos dígitos de un SSN válido</div>
+                </div>
+                <div class="col">
+                    <label>Código Postal</label>
+                    <input type="number" class="form-control" name="postalCode" 
+                    placeholder="Código Postal" 
+                    formControlName='postalCode' 
+                    #postalCode/>
+                    <div style="color: #f00;" *ngIf=" angForm.get('postalCode').invalid && (angForm.get('postalCode').dirty || angForm.get('postalCode').touched) ">Por favor ingrese un código postal válido</div>
+                </div>
+                <div class="col">
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" name="birthday" 
+                    placeholder="Fecha de Nacimiento" 
+                    formControlName='birthday' 
+                    #birthday/>
+                    <div style="color: #f00;" *ngIf="angForm.get('birthday').hasError('required') && angForm.get('birthday').touched">Por favor ingrese una fecha válida</div>
+                </div> 
+            </div>
+               
+              <!--Correo y contraseña-->
+              <div class="row mt-3">
+                <div class="col">
+                    <label>Correo Electrónico</label>
+                    <input type="email" class="form-control" name="email" 
+                    placeholder="Correo Electrónico" 
+                    formControlName="email"
+                     #email>
+                     <div style="color: #f00;" *ngIf="angForm.get('email').hasError('email') && angForm.get('email').touched">Ingrese un correo válido</div>
+                </div> 
+                <div class="col">
+                  <p><strong>Tener en cuenta:</strong></p>
+                  <p>El correo electrónico será el usuario para acceder a su cuenta</p>
+                </div>
+            </div>
 
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
+            <!--Cuarta FILA-->
+            <div class="row mt-3"> 
+              <div class="col">
+                  <label>Contraseña</label>
+                  <input type="password" class="form-control" name="password" 
+                  placeholder="Contraseña" 
+                  formControlName='password' 
+                  #password/>
+                  <div style="color: #f00;" *ngIf=" angForm.get('password').invalid && (angForm.get('password').dirty || angForm.get('password').touched) ">Por favor ingrese una contraseña válida</div>
+              </div>
+              <div class="col">
+                <p><strong>La contraseña debe contener:</strong></p>
+                <p>8 a 20 carácteres, Números </p>
+              </div>
+          </div>
 
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
+          <!--QUINTA FILA-->
+          <div class="row mt-3"> 
+            <div class="col">
+                <input type="password" class="form-control" name="confirmPassword" 
+                placeholder="Confirmar Contraseña" 
+                formControlName='confirmPassword' 
+                #confirmPassword/>
+                <div style="color: #f00;" *ngIf=" angForm.get('confirmPassword').invalid && (angForm.get('confirmPassword').dirty || angForm.get('confirmPassword').touched) ">Las contraseñas no coinciden</div>
+              </div>
+            <div class="col">
+              <p>Caracteres especiales como /-d$@$!%*?&</p>
+            </div>
+        </div>
+              
 
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-</style>
-
-<form [formGroup]="angForm">
-  <input type="text" name="email" placeholder="email" formControlName="email" #email>
-  <br/>
-  <input type="password" name="pwd" placeholder="password" formControlName="password" #password>
-  <br/>
-  <input type="submit" value="submit" (click)="onClickSubmit(email.value, password.value)">
-</form>
+              <!--BOTON DE ENVÍO-->
+              <div class="row mt-3">
+                <div class="col">
+                <input [disabled]="angForm.invalid" type="submit" value="Registrar" class="btn btn-info btn-block" (click)= "onClickSubmit(name.value, lastname1.value, lastname2.value , ssn.value, postalCode.value, birthday.value,email.value, password.value, confirmPassword.value)">
+              </div>
+              </div>
+              
+          </form>
+  </div>
+</div> 
 
 
 <router-outlet></router-outlet>

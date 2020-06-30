@@ -1,5 +1,5 @@
 
-
+     <!--Aplicacion-->
 <div class="container"> 
     <img src="https://www.filepicker.io/api/file/cenzuknFT1GiaSTzg4v1" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.75;">
   <div class="card bg-light mt-5" >
@@ -9,7 +9,7 @@
           <form [formGroup] ="angForm" style="padding: 15px;">
 
               <!--Datos del usuario-->
-               <div class="row mt-2">
+              <div class="row mt-2">
                   <div class="col">
                       <label>Nombre</label>
                       <input type="text" class="form-control" name="name" 
@@ -64,7 +64,7 @@
                 </div> 
             </div>
                
-              <!--Correo y contraseña-->
+              <!--Correo-->
               <div class="row mt-3">
                 <div class="col">
                     <label>Correo Electrónico</label>
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <!--Cuarta FILA-->
+            <!--Contraseña -->
             <div class="row mt-3"> 
               <div class="col">
                   <label>Contraseña</label>
@@ -96,7 +96,6 @@
               </div>
           </div>
 
-          <!--QUINTA FILA-->
           <div class="row mt-3"> 
             <div class="col">
                 <input type="password" class="form-control" name="confirmPassword" 
@@ -111,7 +110,7 @@
         </div>
               
 
-              <!--BOTON DE ENVÍO-->
+              <!--SUBMIT-->
               <div class="row mt-3">
                 <div class="col">
                 <input [disabled]="angForm.invalid" type="submit" value="Registrar" class="btn btn-info btn-block" (click)= "onClickSubmit(name.value, lastname1.value, lastname2.value , ssn.value, postalCode.value, birthday.value,email.value, password.value, confirmPassword.value)">

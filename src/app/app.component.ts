@@ -39,14 +39,14 @@ export class AppComponent implements OnInit{
         if(password != confirmPassword){
           alert('Las contraseñas no coinciden');
         }else{
-          alert(' Name: '+ name+
+          alert(' Nombres: '+ name+
           '\n Apellido paterno: '+ lastname1 +
           '\n Apellido materno: '+ lastname2 +
-          '\n Ssn: '+ ssn +
+          '\n SSN: '+ ssn +
           '\n Código postal: '+ postalCode +
           '\n Fecha de nacimiento: '+ birthday +
-          '\n Correo electrónico: '+ email + 
-          '\n Contraseña: '+ password);
+          '\n Email: '+ email + 
+          '\n Password: '+ password);
         }
   }
 
